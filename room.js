@@ -1,9 +1,9 @@
 class Room {
 
-	constructor(aWidth, aHeight) {
+	constructor() {
 
-		this.myWidth = aWidth;
-		this.myHeight = aHeight;
+		this.myWidth = 0;
+		this.myHeight = 0;
 	}
 
 	setSize = (aWidth, aHeight) => {

@@ -5,16 +5,11 @@ describe("A robot", function() {
 
 	var robot;
 	var room;
-	var roomWidth = 5;
-	var roomHeight = 5;
-	var startX = 0;
-	var startY = 0;
-	var direction = 'E';
 
 	beforeEach(function() {
 
-		room = new Room(roomWidth, roomHeight);
-		robot = new Robot(startX, startY, direction, room);
+		room = new Room();
+		robot = new Robot(room, () => {});
 	});
 
 	it("should be able to set initial values", function() {
@@ -38,6 +33,7 @@ describe("A robot", function() {
 
 	it("should be able to execute a string with instructions", function() {
 
+		room.setSize(5, 5);
 		robot.run('FFRFFF');
 
 		const status = robot.getStatus();
@@ -48,6 +44,8 @@ describe("A robot", function() {
 	});
 
 	it("should return a report after all instructions are complete", function() {
+
+		room.setSize(5, 5);
 
 		const report = robot.run('FFRFFF');
 

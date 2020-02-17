@@ -1,11 +1,12 @@
 class Robot {
 
-	constructor(aX, aY, aDirection, aRoom) {
+	constructor(aRoom, onUpdates) {
 
-		this.myX = aX;
-		this.myY = aY;
-		this.myRotation = this.getRotationFromDirection(aDirection);
+		this.myX = 0;
+		this.myY = 0;
+		this.myRotation = 0;
 		this.myRoom = aRoom;
+		this.onUpdates = onUpdates;
 	}
 
 	getRotationFromDirection = direction => {
@@ -78,6 +79,9 @@ class Robot {
 
 			this.next(aInstructions);
 
+		} else {
+
+			this.onUpdates();
 		}
 	}
 
